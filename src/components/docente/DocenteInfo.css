@@ -1,0 +1,27 @@
+.docente-container {
+  margin: 16px 16px;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.datos-container {
+  display: flex;
+}
+
+.doc-left-container,
+.doc-right-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.doc-right-container {
+  padding-left: 50px;
+}
+
+.legajo-adm-container,
+.legajo-junt-container {
+  margin-top: 16px;
+}
