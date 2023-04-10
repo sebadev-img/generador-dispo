@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./DispoAlta.css";
+import "./DispoBaja.css";
 
-function DispoAlta({
-  dispoAlta,
+function DispoBaja({
+  dispoBaja,
   dispoInstitucion,
   dispoCargo,
   dispoCategoria,
@@ -22,7 +22,7 @@ function DispoAlta({
 }) {
   return (
     <div className="dispo-container">
-      <h1>Datos Dispo Alta</h1>
+      <h1>Datos Dispo Baja</h1>
       <div className="datos-container">
         <div className="dispo-left-container">
           <div className="fecha-container">
@@ -31,8 +31,8 @@ function DispoAlta({
               type="date"
               name=""
               id=""
-              value={dispoAlta}
-              onChange={(e) => setDispoAlta(e.target.value)}
+              value={dispoBaja}
+              onChange={(e) => setDispoBaja(e.target.value)}
             />
           </div>
           <div className="cargo-container">
@@ -123,4 +123,4 @@ function DispoAlta({
   );
 }
 
-export default DispoAlta;
+export default DispoBaja;

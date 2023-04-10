@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./BotonGenerar.css";
+import "./BotonGenerarAlta.css";
 
 import crearDispoAlta from "../../utils/generarDispoAlta";
 
-function BotonGenerar({ datos }) {
+function BotonGenerarAlta({ datos }) {
   return (
     <div className="btn-container">
       <button onClick={() => crearDispoAlta(datos)}>Generar Dispo</button>
@@ -12,4 +12,4 @@ function BotonGenerar({ datos }) {
   );
 }
 
-export default BotonGenerar;
+export default BotonGenerarAlta;
