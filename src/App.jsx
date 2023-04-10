@@ -9,7 +9,7 @@ import DispoBajaPage from "./pages/DispoBajaPage";
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/generador-dispo/",
       element: <MainPage></MainPage>,
       children: [
         {
