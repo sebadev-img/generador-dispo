@@ -3,7 +3,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainPage from "./pages/MainPage";
-import DispoAltaPage from "./pages/dispoAltaPage";
+import DispoAltaPage from "./pages/DispoAltaPage";
 import DispoBajaPage from "./pages/DispoBajaPage";
 
 function App() {
