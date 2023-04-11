@@ -16,14 +16,27 @@ function Acta({
       <div className="datos-acta-container">
         <div className="actanum-container">
           <h3>Numero de Acta</h3>
-          <input
-            type="number"
-            min="0"
-            name=""
-            id=""
-            value={actaNumero}
-            onChange={(e) => setActaNumero(e.target.value)}
-          />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <input
+              style={{ display: "inline-block", verticalAlign: "middle" }}
+              type="number"
+              min="0"
+              name=""
+              id=""
+              value={actaNumero}
+              onChange={(e) => setActaNumero(e.target.value)}
+            />
+            <p
+              style={{
+                display: "inline-block",
+                marginTop: "8px",
+                verticalAlign: "middle",
+                borderBottom: "2px solid rgb(219, 219, 219)",
+              }}
+            >
+              /2023
+            </p>
+          </div>
         </div>
         <div className="orden-container">
           <h3>Numero de Orden</h3>

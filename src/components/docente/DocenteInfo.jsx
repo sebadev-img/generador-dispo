@@ -28,10 +28,7 @@ function DocenteInfo({
           <div className="legajo-adm-container">
             <h3>Legajo Administrativo</h3>
             <input
-              type="number"
-              min="0"
-              name=""
-              id=""
+              type="text"
               value={docLegAdmi}
               onChange={(e) => setDocLegAdmi(e.target.value)}
             />
@@ -41,10 +38,7 @@ function DocenteInfo({
           <div className="dni-container">
             <h3>DNI</h3>
             <input
-              type="number"
-              min="0"
-              name=""
-              id=""
+              type="text"
               value={docDNI}
               onChange={(e) => setDocDNI(e.target.value)}
             />
@@ -52,10 +46,7 @@ function DocenteInfo({
           <div className="legajo-junt-container">
             <h3>Legajo Junta</h3>
             <input
-              type="number"
-              min="0"
-              name=""
-              id=""
+              type="text"
               value={docLegJunta}
               onChange={(e) => setDocLegJunta(e.target.value)}
             />

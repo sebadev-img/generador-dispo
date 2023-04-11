@@ -7,6 +7,8 @@ function DispoAlta({
   dispoInstitucion,
   dispoCargo,
   dispoCategoria,
+  dispoHoras,
+  dispoArticulo,
   dispoTurno,
   dispoRevista,
   dispoPlanilla,
@@ -15,6 +17,8 @@ function DispoAlta({
   setDispoInstitucion,
   setDispoCargo,
   setDispoCategoria,
+  setDispoHoras,
+  setDispoArticulo,
   setDispoTurno,
   setDispoRevista,
   setDispoPlanilla,
@@ -36,13 +40,19 @@ function DispoAlta({
             />
           </div>
           <div className="cargo-container">
-            <h3>Cargo Maestro</h3>
+            <h3>Cargo</h3>
             <input
               type="text"
-              name=""
-              id=""
               value={dispoCargo}
               onChange={(e) => setDispoCargo(e.target.value)}
+            />
+          </div>
+          <div className="horas-container">
+            <h3>Cant Horas</h3>
+            <input
+              type="text"
+              value={dispoHoras}
+              onChange={(e) => setDispoHoras(e.target.value)}
             />
           </div>
           <div className="turno-container">
@@ -61,14 +71,27 @@ function DispoAlta({
           </div>
           <div className="planilla-container">
             <h3>Planilla Movimiento Nº</h3>
-            <input
-              type="number"
-              min="0"
-              name=""
-              id=""
-              value={dispoPlanilla}
-              onChange={(e) => setDispoPlanilla(e.target.value)}
-            />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <input
+                style={{ display: "inline-block", verticalAlign: "middle" }}
+                type="number"
+                min="0"
+                name=""
+                id=""
+                value={dispoPlanilla}
+                onChange={(e) => setDispoPlanilla(e.target.value)}
+              />
+              <p
+                style={{
+                  display: "inline-block",
+                  verticalAlign: "middle",
+                  marginTop: "8px",
+                  borderBottom: "2px solid rgb(219, 219, 219)",
+                }}
+              >
+                /2023
+              </p>
+            </div>
           </div>
         </div>
         <div className="dispo-right-container">
@@ -91,6 +114,21 @@ function DispoAlta({
               onChange={(e) => setDispoCategoria(e.target.value)}
             />
           </div>
+          <div className="articulo-container">
+            <h3>Articulo</h3>
+            <select
+              name=""
+              id=""
+              value={dispoArticulo}
+              onChange={(e) => setDispoArticulo(e.target.value)}
+            >
+              <option value="Ninguno" defaultValue>
+                Ninguno
+              </option>
+              <option value="Artículo 7">Art 7</option>
+              <option value="Artículo 9">Art 9</option>
+            </select>
+          </div>
           <div className="revista-container">
             <h3>Sit de Revista</h3>
             <select
@@ -108,14 +146,26 @@ function DispoAlta({
           </div>
           <div className="disponum-container">
             <h3>Disposicion Nº</h3>
-            <input
-              type="number"
-              min="0"
-              name=""
-              id=""
-              value={dispoNumero}
-              onChange={(e) => setDispoNumero(e.target.value)}
-            />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <input
+                style={{ display: "inline-block" }}
+                type="number"
+                min="0"
+                name=""
+                id=""
+                value={dispoNumero}
+                onChange={(e) => setDispoNumero(e.target.value)}
+              />
+              <p
+                style={{
+                  display: "inline-block",
+                  marginTop: "8px",
+                  borderBottom: "2px solid rgb(219, 219, 219)",
+                }}
+              >
+                /2023
+              </p>
+            </div>
           </div>
         </div>
       </div>

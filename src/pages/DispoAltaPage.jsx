@@ -24,6 +24,8 @@ function DispoAltaPage() {
   const [dispoInstitucion, setDispoInstitucion] = useState("");
   const [dispoCargo, setDispoCargo] = useState("");
   const [dispoCategoria, setDispoCategoria] = useState(0);
+  const [dispoHoras, setDispoHoras] = useState(0);
+  const [dispoArticulo, setDispoArticulo] = useState("");
   const [dispoTurno, setDispoTurno] = useState("Mañana");
   const [dispoRevista, setDispoRevista] = useState("Suplente");
   const [dispoPlanilla, setDispoPlanilla] = useState(0);
@@ -41,6 +43,8 @@ function DispoAltaPage() {
     dispoInstitucion: dispoInstitucion,
     dispoCargo: dispoCargo,
     dispoCategoria: dispoCategoria,
+    dispoHoras: dispoHoras,
+    dispoArticulo: dispoArticulo,
     dispoTurno: dispoTurno,
     dispoRevista: dispoRevista,
     dispoPlanilla: dispoPlanilla,
@@ -61,6 +65,8 @@ function DispoAltaPage() {
       dispoInstitucion: dispoInstitucion,
       dispoCargo: dispoCargo,
       dispoCategoria: dispoCategoria,
+      dispoHoras: dispoHoras,
+      dispoArticulo: dispoArticulo,
       dispoTurno: dispoTurno,
       dispoRevista: dispoRevista,
       dispoPlanilla: dispoPlanilla,
@@ -78,6 +84,8 @@ function DispoAltaPage() {
     dispoInstitucion,
     dispoCargo,
     dispoCategoria,
+    dispoHoras,
+    dispoArticulo,
     dispoTurno,
     dispoRevista,
     dispoPlanilla,
@@ -109,6 +117,8 @@ function DispoAltaPage() {
         dispoInstitucion={dispoInstitucion}
         dispoCargo={dispoCargo}
         dispoCategoria={dispoCategoria}
+        dispoHoras={dispoHoras}
+        dispoArticulo={dispoArticulo}
         dispoTurno={dispoTurno}
         dispoRevista={dispoRevista}
         dispoPlanilla={dispoPlanilla}
@@ -117,6 +127,8 @@ function DispoAltaPage() {
         setDispoInstitucion={setDispoInstitucion}
         setDispoCargo={setDispoCargo}
         setDispoCategoria={setDispoCategoria}
+        setDispoHoras={setDispoHoras}
+        setDispoArticulo={setDispoArticulo}
         setDispoTurno={setDispoTurno}
         setDispoRevista={setDispoRevista}
         setDispoPlanilla={setDispoPlanilla}

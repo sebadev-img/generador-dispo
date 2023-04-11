@@ -85,7 +85,13 @@ function obtenerFechadeAlta(fechaAlta) {
 
 const crearDispoAlta = async (datos) => {
   const fechaAlta = obtenerFechaDeHoy();
-  console.log("iniciando...", fechaAlta);
+  const horas =
+    datos.dispoHoras > 0 ? "Cantidad de Horas: " + datos.dispoHoras : "";
+  const articulo =
+    datos.dispoArticulo !== "Ninguno"
+      ? "Excepción: " + datos.dispoArticulo
+      : "";
+  console.log("iniciando...", datos.dispoArticulo);
 
   // imagen
   const blob = await fetch(image).then((r) => r.blob());
@@ -250,7 +256,7 @@ const crearDispoAlta = async (datos) => {
   const para4 = new Paragraph({
     children: [
       new TextRun({
-        text: `Que en el acto Público ha sido designado/a, por orden de mérito de acuerdo al Listado confeccionado por la Junta de Clasificación y Disciplina del Nivel para el ciclo lectivo 2023, a el/la docente ${datos.docNombre}. DNI Nº ${datos.docDNI} Legajo Administrativo Nº ${datos.docLegAdmi}, Legajo de Junta de Clasificación Nº ${datos.docLegJunta}.`,
+        text: `Que en el acto Público ha sido designado/a, por orden de mérito de acuerdo al Listado confeccionado por la Junta de Clasificación y Disciplina del Nivel para el ciclo lectivo 2023, a el/la docente ${datos.docNombre} DNI Nº ${datos.docDNI} Legajo Administrativo Nº ${datos.docLegAdmi}, Legajo de Junta de Clasificación Nº ${datos.docLegJunta}.`,
         font: "Arial",
         size: 22,
       }),
@@ -266,7 +272,7 @@ const crearDispoAlta = async (datos) => {
   const para5 = new Paragraph({
     children: [
       new TextRun({
-        text: `Que la designación quedó registrada en el Libro de Actas de la Secretaría Técnica de Supervisión Escolar, mediante Acta N° ${datos.actaNumero}/23, número de orden ${datos.actaOrden} Folio Nº ${datos.actaFolio}`,
+        text: `Que la designación quedó registrada en el Libro de Actas de la Secretaría Técnica de Supervisión Escolar, mediante Acta N° ${datos.actaNumero}/23, número de orden ${datos.actaOrden} Folio Nº ${datos.actaFolio}.`,
         font: "Arial",
         size: 22,
       }),
@@ -388,15 +394,15 @@ const crearDispoAlta = async (datos) => {
           datos.dispoAlta
         )}, a el/la  docente ${datos.docNombre} DNI Nº ${
           datos.docDNI
-        } Legajo Administrativo Nº ${
+        }, Legajo Administrativo Nº ${
           datos.docLegAdmi
         }, Legajo de Junta de Clasificación Nº ${
           datos.docLegJunta
-        }. En el cargo Maestro ${datos.dispoCargo} Categoría ${
+        }. En el cargo ${datos.dispoCargo} Categoría ${
           datos.dispoCategoria
-        } Turno ${datos.dispoTurno} Situación de Revista: ${
+        } ${horas} Turno ${datos.dispoTurno} Situación de Revista: ${
           datos.dispoRevista
-        }, ello  en virtud de los motivos expuestos en los considerandos.`,
+        }, ${articulo}, ello  en virtud de los motivos expuestos en los considerandos.`,
         font: "Arial",
         size: 22,
       }),
@@ -434,7 +440,7 @@ const crearDispoAlta = async (datos) => {
         bold: true,
       }),
       new TextRun({
-        text: ` la presente junto a la Planilla de Movimientos N° ${datos.dispoPlanilla} /2023 a la Dirección General  de Recursos Humanos Río Grande, y a quienes corresponda.`,
+        text: ` la presente junto a la Planilla de Movimientos N° ${datos.dispoPlanilla}/2023 a la Dirección General  de Recursos Humanos Río Grande, y a quienes corresponda.`,
         font: "Arial",
         size: 22,
       }),
