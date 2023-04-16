@@ -10,7 +10,6 @@ import {
   TableRow,
   TableCell,
   AlignmentType,
-  LineRuleType,
   UnderlineType,
   WidthType,
   convertMillimetersToTwip,
@@ -19,12 +18,8 @@ import {
 
 import image from "../assets/logo.jpg";
 
-function obtenerFechaDeHoy() {
-  const hoy = new Date();
-  const dia = hoy.getDate();
-  const mes = hoy.getMonth() + 1;
+function obtenerMesTexto(mes) {
   let mesTexto = "Enero";
-  const anio = hoy.getFullYear();
   switch (mes) {
     case 1:
       mesTexto = "Enero";
@@ -63,12 +58,20 @@ function obtenerFechaDeHoy() {
       mesTexto = "Diciembre";
       break;
   }
-  const fechaAlta = {
+  return mesTexto;
+}
+
+function obtenerFechaDeHoy() {
+  const hoy = new Date();
+  const dia = hoy.getDate();
+  const mes = hoy.getMonth() + 1;
+  const anio = hoy.getFullYear();
+  const fechaHoy = {
     dia: dia,
-    mes: mesTexto,
+    mes: obtenerMesTexto(mes),
     anio: anio,
   };
-  return fechaAlta;
+  return fechaHoy;
 }
 
 function obtenerFechadeAlta(fechaAlta) {
@@ -78,19 +81,12 @@ function obtenerFechadeAlta(fechaAlta) {
   const y = alta.getFullYear();
   let m = alta.getMonth() + 1;
   let d = alta.getDate();
-  m = m < 10 ? "0" + m : m;
   d = d < 10 ? "0" + d : d;
-  return d + "/" + m + "/" + y;
+  return d + " de " + obtenerMesTexto(m) + " de " + y;
 }
 
-const crearDispoAlta = async (datos) => {
-  const fechaAlta = obtenerFechaDeHoy();
-  const horas =
-    datos.dispoHoras > 0 ? "Cantidad de Horas: " + datos.dispoHoras : "";
-  const articulo =
-    datos.dispoArticulo !== "Ninguno"
-      ? "Excepción: " + datos.dispoArticulo
-      : "";
+const crearDispoFuncion = async (datos) => {
+  const fechaHoy = obtenerFechaDeHoy();
   console.log("iniciando...", datos.dispoArticulo);
 
   // imagen
@@ -201,7 +197,7 @@ const crearDispoAlta = async (datos) => {
   const para1 = new Paragraph({
     children: [
       new TextRun({
-        text: `Rio Grande, ${fechaAlta.dia} de ${fechaAlta.mes} de ${fechaAlta.anio}`,
+        text: `Rio Grande, ${fechaHoy.dia} de ${fechaHoy.mes} de ${fechaHoy.anio}`,
         font: "Arial",
         size: 22, // 22 = 11
       }),
@@ -220,7 +216,7 @@ const crearDispoAlta = async (datos) => {
         bold: true,
       }),
       new TextRun({
-        text: ` la Disposición S.G.N.I. Primaria, Jóvenes y Adul. Ed. Especial, Bibliotecas y Gabinete Nº 018/2023, Disposición Nº 084/2023 Anexo I y la Planilla de Movimientos Laborales N° ${datos.dispoPlanilla} /2023 de la Escuela Provincial N° 44, cuya copia se adjunta, y;`,
+        text: ` la necesidad de cubrir el cargo de ${datos.dispoCargoFuturo} y Planilla de Movimiento Nº ${datos.dispoPlanilla}/23.`,
         font: "Arial",
         size: 22,
       }),
@@ -256,7 +252,11 @@ const crearDispoAlta = async (datos) => {
   const para4 = new Paragraph({
     children: [
       new TextRun({
-        text: `Que en el acto Público ha sido designado/a, por orden de mérito de acuerdo al Listado confeccionado por la Junta de Clasificación y Disciplina del Nivel para el ciclo lectivo 2023, a el/la docente ${datos.docNombre} DNI Nº ${datos.docDNI} Legajo Administrativo Nº ${datos.docLegAdmi}, Legajo de Junta de Clasificación Nº ${datos.docLegJunta}.`,
+        text: `Que el/la docente se desempeña como ${
+          datos.dispoCargoFuturo
+        } de la ${datos.dispoInstitucion} desde el ${obtenerFechadeAlta(
+          datos.dispoFechaFuncion
+        )}.`,
         font: "Arial",
         size: 22,
       }),
@@ -272,7 +272,7 @@ const crearDispoAlta = async (datos) => {
   const para5 = new Paragraph({
     children: [
       new TextRun({
-        text: `Que la designación quedó registrada en el Libro de Actas de la Secretaría Técnica de Supervisión Escolar, mediante Acta N° ${datos.actaNumero}/23, número de orden ${datos.actaOrden} Folio Nº ${datos.actaFolio}.`,
+        text: `Que de acuerdo al listado de Interinatos y Suplencia, se realizó el ofrecimiento del cargo de ${datos.dispoCargoFuturo} a el/la docente ${datos.docNombre} DNI Nº ${datos.docDNI}, Legajo Nº ${datos.docLegAdmi}, Legajo de Junta Nº ${datos.docLegJunta}.`,
         font: "Arial",
         size: 22,
       }),
@@ -288,7 +288,7 @@ const crearDispoAlta = async (datos) => {
   const para6 = new Paragraph({
     children: [
       new TextRun({
-        text: "Que el/la postulante reúne las condiciones que establece la Ley Provincial N°761.",
+        text: "Que resulta necesario informar el correspondiente Cambio de Función a la Dirección de Recursos Humanos.",
         font: "Arial",
         size: 22,
       }),
@@ -304,7 +304,7 @@ const crearDispoAlta = async (datos) => {
   const para7 = new Paragraph({
     children: [
       new TextRun({
-        text: "Que resulta necesario informar el correspondiente Movimiento de Alta docente a la Dirección de Recursos Humanos.",
+        text: "Que conforme a la normativa vigente, es necesario emitir el presente  instrumento legal.",
         font: "Arial",
         size: 22,
       }),
@@ -320,7 +320,7 @@ const crearDispoAlta = async (datos) => {
   const para8 = new Paragraph({
     children: [
       new TextRun({
-        text: "Que el/la suscripto/a se encuentra facultado/a para emitir el presente acto administrativo, conforme a lo establecido en el Decreto 226/00,",
+        text: "Que la suscripta se encuentra facultada para dictar el presente acto administrativo, en virtud a lo establecido en el Decreto Provincial N° 226/00 y en la Resolución M. E. Nº 1553/06.",
         font: "Arial",
         size: 22,
       }),
@@ -384,25 +384,13 @@ const crearDispoAlta = async (datos) => {
   const para12 = new Paragraph({
     children: [
       new TextRun({
-        text: "ARTÍCULO 1°.- DAR EL ALTA",
+        text: "ARTÍCULO 1°.- INFORMAR EL CAMBIO DE FUNCION",
         font: "Arial",
         size: 22,
         bold: true,
       }),
       new TextRun({
-        text: `, a partir del ${obtenerFechadeAlta(
-          datos.dispoAlta
-        )}, a el/la  docente ${datos.docNombre} DNI Nº ${
-          datos.docDNI
-        }, Legajo Administrativo Nº ${
-          datos.docLegAdmi
-        }, Legajo de Junta de Clasificación Nº ${
-          datos.docLegJunta
-        }. En el cargo ${datos.dispoCargo} Categoría ${
-          datos.dispoCategoria
-        } ${horas} Turno ${datos.dispoTurno} Situación de Revista: ${
-          datos.dispoRevista
-        }, ${articulo}, ello  en virtud de los motivos expuestos en los considerandos.`,
+        text: ` a el/la docente ${datos.docNombre} DNI Nº ${datos.docDNI}, Legajo Nº ${datos.docLegAdmi}, Legajo de Junta Nº ${datos.docLegJunta}, De Maestro ${datos.dispoCargoActual} categoría ${datos.dispoCategoriaActual} a Maestro ${datos.dispoCargoFuturo} categoría ${datos.dispoCategoriaFuturo}, Situación de Revista: ${datos.dispoRevista}, hasta que persistan las causales, por los motivos vertidos en los considerandos.`,
         font: "Arial",
         size: 22,
       }),
@@ -440,7 +428,7 @@ const crearDispoAlta = async (datos) => {
         bold: true,
       }),
       new TextRun({
-        text: ` la presente junto a la Planilla de Movimientos N° ${datos.dispoPlanilla}/2023 a la Dirección General  de Recursos Humanos Río Grande, y a quienes corresponda.`,
+        text: ` copia de la presente junto con la Planilla de Movimientos Nº ${datos.dispoPlanilla}/23 a la Dirección General de Recursos Humanos (Río Grande).`,
         font: "Arial",
         size: 22,
       }),
@@ -453,10 +441,15 @@ const crearDispoAlta = async (datos) => {
   const para15 = new Paragraph({
     children: [
       new TextRun({
-        text: "ARTÍCULO 4°.- ARCHIVAR.",
+        text: "ARTÍCULO 4°.- COMUNICAR",
         font: "Arial",
         size: 22,
         bold: true,
+      }),
+      new TextRun({
+        text: ` a quienes corresponda  y archivar.`,
+        font: "Arial",
+        size: 22,
       }),
     ],
     alignment: AlignmentType.JUSTIFIED,
@@ -468,7 +461,7 @@ const crearDispoAlta = async (datos) => {
   const para16 = new Paragraph({
     children: [
       new TextRun({
-        text: `DISPOSICION Nº ${datos.dispoNumero}/${fechaAlta.anio} ${datos.dispoInstitucion}`,
+        text: `DISPOSICION Nº ${datos.dispoNumero}/${fechaHoy.anio} ${datos.dispoInstitucion}`,
         font: "Arial",
         size: 22,
         bold: true,
@@ -681,10 +674,10 @@ const crearDispoAlta = async (datos) => {
   });
   Packer.toBlob(doc).then((blob) => {
     console.log(blob);
-    const docName = "Dispo Alta " + datos.docNombre;
+    const docName = "Dispo Cambio Funcion " + datos.docNombre;
     saveAs(blob, docName);
     console.log("Document created successfully");
   });
 };
 
-export default crearDispoAlta;
+export default crearDispoFuncion;

@@ -1,25 +1,31 @@
+import "./DispoAltaPage.css";
+
 import React from "react";
 
-import "./DispoBajaPage.css";
-
-import DocenteInfo from "../components/docente/DocenteInfo";
-import DispoBaja from "../components/baja/DispoBaja";
-import BotonGenerarBaja from "../components/boton-generar-baja/BotonGenerarBaja";
-
+import DocenteInfo from "../../components/docente/DocenteInfo";
+import DispoAlta from "../../components/alta/DispoAlta";
+import Acta from "../../components/acta/Acta";
 import { useEffect, useState } from "react";
 
-import getTodayDate from "../utils/getTodayDate";
+import getTodayDate from "../../utils/getTodayDate";
+import BotonGenerarAlta from "../../components/boton-generar-alta/BotonGenerarAlta";
 
-function DispoBajaPage() {
+function DispoAltaPage() {
   const [docNombre, setDocNombre] = useState("");
   const [docDNI, setDocDNI] = useState(0);
-  const [docLegAdmi, setDocLegAdmi] = useState(0);
+  const [docLegAdmi, setDocLegAdmi] = useState("");
   const [docLegJunta, setDocLegJunta] = useState(0);
 
-  const [dispoBaja, setDispoBaja] = useState(getTodayDate());
+  const [actaNumero, setActaNumero] = useState(0);
+  const [actaOrden, setActaOrden] = useState(0);
+  const [actaFolio, setActaFolio] = useState(0);
+
+  const [dispoAlta, setDispoAlta] = useState(getTodayDate());
   const [dispoInstitucion, setDispoInstitucion] = useState("");
   const [dispoCargo, setDispoCargo] = useState("");
   const [dispoCategoria, setDispoCategoria] = useState(0);
+  const [dispoHoras, setDispoHoras] = useState(0);
+  const [dispoArticulo, setDispoArticulo] = useState("");
   const [dispoTurno, setDispoTurno] = useState("Mañana");
   const [dispoRevista, setDispoRevista] = useState("Suplente");
   const [dispoPlanilla, setDispoPlanilla] = useState(0);
@@ -30,10 +36,15 @@ function DispoBajaPage() {
     docDNI: docDNI,
     docLegAdmi: docLegAdmi,
     docLegJunta: docLegJunta,
-    dispoBaja: dispoBaja,
+    actaNumero: actaNumero,
+    actaOrden: actaOrden,
+    actaFolio: actaFolio,
+    dispoAlta: dispoAlta,
     dispoInstitucion: dispoInstitucion,
     dispoCargo: dispoCargo,
     dispoCategoria: dispoCategoria,
+    dispoHoras: dispoHoras,
+    dispoArticulo: dispoArticulo,
     dispoTurno: dispoTurno,
     dispoRevista: dispoRevista,
     dispoPlanilla: dispoPlanilla,
@@ -47,10 +58,15 @@ function DispoBajaPage() {
       docDNI: docDNI,
       docLegAdmi: docLegAdmi,
       docLegJunta: docLegJunta,
-      dispoAlta: dispoBaja,
+      actaNumero: actaNumero,
+      actaOrden: actaOrden,
+      actaFolio: actaFolio,
+      dispoAlta: dispoAlta,
       dispoInstitucion: dispoInstitucion,
       dispoCargo: dispoCargo,
       dispoCategoria: dispoCategoria,
+      dispoHoras: dispoHoras,
+      dispoArticulo: dispoArticulo,
       dispoTurno: dispoTurno,
       dispoRevista: dispoRevista,
       dispoPlanilla: dispoPlanilla,
@@ -61,17 +77,23 @@ function DispoBajaPage() {
     docDNI,
     docLegAdmi,
     docLegJunta,
-    dispoBaja,
+    actaNumero,
+    actaOrden,
+    actaFolio,
+    dispoAlta,
     dispoInstitucion,
     dispoCargo,
     dispoCategoria,
+    dispoHoras,
+    dispoArticulo,
     dispoTurno,
     dispoRevista,
     dispoPlanilla,
     dispoNumero,
   ]);
+
   return (
-    <div className="dispoBajaPage-container">
+    <div className="dispoAltaPage-container">
       <DocenteInfo
         docNombre={docNombre}
         docDNI={docDNI}
@@ -82,27 +104,39 @@ function DispoBajaPage() {
         setDocLegAdmi={setDocLegAdmi}
         setDocLegJunta={setDocLegJunta}
       ></DocenteInfo>
-      <DispoBaja
-        dispoBaja={dispoBaja}
+      <Acta
+        actaNumero={actaNumero}
+        actaOrden={actaOrden}
+        actaFolio={actaFolio}
+        setActaNumero={setActaNumero}
+        setActaOrden={setActaOrden}
+        setActaFolio={setActaFolio}
+      ></Acta>
+      <DispoAlta
+        dispoAlta={dispoAlta}
         dispoInstitucion={dispoInstitucion}
         dispoCargo={dispoCargo}
         dispoCategoria={dispoCategoria}
+        dispoHoras={dispoHoras}
+        dispoArticulo={dispoArticulo}
         dispoTurno={dispoTurno}
         dispoRevista={dispoRevista}
         dispoPlanilla={dispoPlanilla}
         dispoNumero={dispoNumero}
-        setDispoAlta={setDispoBaja}
+        setDispoAlta={setDispoAlta}
         setDispoInstitucion={setDispoInstitucion}
         setDispoCargo={setDispoCargo}
         setDispoCategoria={setDispoCategoria}
+        setDispoHoras={setDispoHoras}
+        setDispoArticulo={setDispoArticulo}
         setDispoTurno={setDispoTurno}
         setDispoRevista={setDispoRevista}
         setDispoPlanilla={setDispoPlanilla}
         setDispoNumero={setDispoNumero}
-      ></DispoBaja>
-      <BotonGenerarBaja datos={datos}></BotonGenerarBaja>
+      ></DispoAlta>
+      <BotonGenerarAlta datos={datos}></BotonGenerarAlta>
     </div>
   );
 }
 
-export default DispoBajaPage;
+export default DispoAltaPage;

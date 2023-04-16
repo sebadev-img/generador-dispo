@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./MainPage.css";
+import "../main/MainPage.css";
 
 import { Outlet } from "react-router-dom";
 
-import Sidenav from "../components/sidenav/Sidenav";
+import Sidenav from "../../components/sidenav/Sidenav";
 
 function MainPage() {
   return (
@@ -13,9 +13,8 @@ function MainPage() {
         <Sidenav></Sidenav>
       </div>
       <div className="right-container">
-        La aplicacion por el momento solo genera Dispo de ALTA/BAJA, si
-        encontras un error o tenes una idea para mejorar la app mandame un mail
-        a sebastiandev.img@gmail.com
+        Si encontras un error o tenes una idea para mejorar la app mandame un
+        mail a <strong>sebastiandev.img@gmail.com</strong>
         <Outlet></Outlet>
       </div>
     </div>

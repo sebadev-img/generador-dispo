@@ -641,7 +641,7 @@ const crearDispoBaja = async (datos) => {
   });
   Packer.toBlob(doc).then((blob) => {
     console.log(blob);
-    const docName = "DispoBaja " + datos.docNombre;
+    const docName = "Dispo Baja " + datos.docNombre;
     saveAs(blob, docName);
     console.log("Document created successfully");
   });

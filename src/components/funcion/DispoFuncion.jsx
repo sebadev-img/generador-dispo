@@ -1,62 +1,70 @@
 import React from "react";
 
-import "./DispoBaja.css";
+import "./DispoFuncion.css";
 
-function DispoBaja({
-  dispoBaja,
+function DispoFuncion({
+  dispoFechaFuncion,
   dispoInstitucion,
-  dispoCargo,
-  dispoCategoria,
-  dispoTurno,
+  dispoCargoActual,
+  dispoCargoFuturo,
+  dispoCategoriaActual,
+  dispoCategoriaFuturo,
   dispoRevista,
   dispoPlanilla,
   dispoNumero,
-  setDispoBaja,
+  setDispoFechaFuncion,
   setDispoInstitucion,
-  setDispoCargo,
-  setDispoCategoria,
-  setDispoTurno,
+  setDispoCargoActual,
+  setDispoCargoFuturo,
+  setDispoCategoriaActual,
+  setDispoCategoriaFuturo,
   setDispoRevista,
   setDispoPlanilla,
   setDispoNumero,
 }) {
   return (
     <div className="dispo-container">
-      <h1>Datos Dispo Baja</h1>
+      <h1>Datos Dispo Cambio Funcion</h1>
       <div className="datos-container">
         <div className="dispo-left-container">
           <div className="fecha-container">
-            <h3>Fecha de Baja</h3>
+            <h3>Fecha de Cambio de Funcion</h3>
             <input
               type="date"
               name=""
               id=""
-              value={dispoBaja}
-              onChange={(e) => setDispoBaja(e.target.value)}
+              value={dispoFechaFuncion}
+              onChange={(e) => setDispoFechaFuncion(e.target.value)}
             />
           </div>
-          <div className="cargo-container">
-            <h3>Cargo Maestro</h3>
+          <div className="cargo-actual-container">
+            <h3>De Cargo</h3>
             <input
               type="text"
-              name=""
-              id=""
-              value={dispoCargo}
-              onChange={(e) => setDispoCargo(e.target.value)}
+              value={dispoCargoActual}
+              onChange={(e) => setDispoCargoActual(e.target.value)}
             />
           </div>
-          <div className="turno-container">
-            <h3>Turno</h3>
+          <div className="categoria-actual-container">
+            <h3>De Categoria</h3>
+            <input
+              type="text"
+              value={dispoCategoriaActual}
+              onChange={(e) => setDispoCategoriaActual(e.target.value)}
+            />
+          </div>
+          <div className="revista-container">
+            <h3>Sit de Revista</h3>
             <select
               name=""
               id=""
-              value={dispoTurno}
-              onChange={(e) => setDispoTurno(e.target.value)}
+              value={dispoRevista}
+              onChange={(e) => setDispoRevista(e.target.value)}
             >
-              <option value="Mañana" defaultValue>
-                Mañana
+              <option value="Suplente" defaultValue>
+                Suplente
               </option>
-              <option value="Tarde">Tarde</option>
+              <option value="Interino">Interino</option>
             </select>
           </div>
           <div className="planilla-container">
@@ -94,32 +102,23 @@ function DispoBaja({
               onChange={(e) => setDispoInstitucion(e.target.value)}
             />
           </div>
-          <div className="categoria-container">
-            <h3>Categoria</h3>
+          <div className="cargo-futuro-container">
+            <h3>A Cargo</h3>
             <input
-              type="number"
-              min="0"
-              name=""
-              id=""
-              value={dispoCategoria}
-              onChange={(e) => setDispoCategoria(e.target.value)}
+              type="text"
+              value={dispoCargoFuturo}
+              onChange={(e) => setDispoCargoFuturo(e.target.value)}
             />
           </div>
-          <div className="revista-container">
-            <h3>Sit de Revista</h3>
-            <select
-              name=""
-              id=""
-              value={dispoRevista}
-              onChange={(e) => setDispoRevista(e.target.value)}
-            >
-              <option value="Suplente" defaultValue>
-                Suplente
-              </option>
-              <option value="Interino">Interino</option>
-              <option value="Titular">Titular</option>
-            </select>
+          <div className="categoria-futuro-container">
+            <h3>A Categoria</h3>
+            <input
+              type="text"
+              value={dispoCategoriaFuturo}
+              onChange={(e) => setDispoCategoriaFuturo(e.target.value)}
+            />
           </div>
+          <div className="empty-container" style={{ height: "100%" }}></div>
           <div className="disponum-container">
             <h3>Disposicion Nº</h3>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -150,4 +149,4 @@ function DispoBaja({
   );
 }
 
-export default DispoBaja;
+export default DispoFuncion;

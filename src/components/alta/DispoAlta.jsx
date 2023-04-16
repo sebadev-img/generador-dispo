@@ -86,6 +86,7 @@ function DispoAlta({
                   display: "inline-block",
                   verticalAlign: "middle",
                   marginTop: "8px",
+                  height: "23px",
                   borderBottom: "2px solid rgb(219, 219, 219)",
                 }}
               >
@@ -160,6 +161,7 @@ function DispoAlta({
                 style={{
                   display: "inline-block",
                   marginTop: "8px",
+                  height: "23px",
                   borderBottom: "2px solid rgb(219, 219, 219)",
                 }}
               >

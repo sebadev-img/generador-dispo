@@ -1,0 +1,33 @@
+.dispo-container {
+  margin: 16px 16px;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.datos-container {
+  display: flex;
+}
+
+.dispo-left-container,
+.dispo-right-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.dispo-right-container {
+  padding-left: 50px;
+}
+
+.cargo-actual-container,
+.cargo-futuro-container,
+.categoria-actual-container,
+.categoria-futuro-container,
+.revista-container,
+.empty-container,
+.planilla-container,
+.disponum-container {
+  margin-top: 16px;
+}

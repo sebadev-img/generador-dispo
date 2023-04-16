@@ -2,9 +2,10 @@ import "./App.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import MainPage from "./pages/MainPage";
-import DispoAltaPage from "./pages/DispoAltaPage";
-import DispoBajaPage from "./pages/DispoBajaPage";
+import MainPage from "./pages/main/MainPage";
+import DispoAltaPage from "./pages/dispo_alta/DispoAltaPage";
+import DispoBajaPage from "./pages/dispo_baja/DispoBajaPage";
+import DispoFuncionPage from "./pages/dispo_cfuncion/DispoFuncionPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,10 @@ function App() {
         {
           path: "dispobaja",
           element: <DispoBajaPage></DispoBajaPage>,
+        },
+        {
+          path: "dispofuncion",
+          element: <DispoFuncionPage></DispoFuncionPage>,
         },
       ],
     },

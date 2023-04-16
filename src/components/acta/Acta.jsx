@@ -30,6 +30,7 @@ function Acta({
               style={{
                 display: "inline-block",
                 marginTop: "8px",
+                height: "23px",
                 verticalAlign: "middle",
                 borderBottom: "2px solid rgb(219, 219, 219)",
               }}

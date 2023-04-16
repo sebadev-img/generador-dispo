@@ -14,6 +14,9 @@ function Sidenav() {
         <li>
           <Link to="dispobaja">Dispo Baja</Link>
         </li>
+        <li>
+          <Link to="dispofuncion">Dispo C. Funcion</Link>
+        </li>
       </ul>
     </nav>
   );

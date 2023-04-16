@@ -17,6 +17,7 @@ input {
   border-bottom: 2px solid rgb(219, 219, 219);
   font-size: 16px;
   text-align: right;
+  height: 23px;
 }
 
 select {
