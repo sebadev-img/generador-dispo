@@ -111,7 +111,7 @@ const crearDispoAlta = async (datos) => {
       new Paragraph({
         children: [
           new TextRun({
-            text: `“2023 – 40º Aniversario de la Revolución de la Democracia”`,
+            text: `“2023 – 40º Aniversario de la Restauración de la Democracia”`,
             font: "Arial",
             size: 16,
           }),
