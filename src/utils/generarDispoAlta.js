@@ -220,7 +220,7 @@ const crearDispoAlta = async (datos) => {
         bold: true,
       }),
       new TextRun({
-        text: ` la Disposición S.G.N.I. Primaria, Jóvenes y Adul. Ed. Especial, Bibliotecas y Gabinete Nº 018/2023, Disposición Nº 084/2023 Anexo I y la Planilla de Movimientos Laborales N° ${datos.dispoPlanilla} /2023 de la Escuela Provincial N° 44, cuya copia se adjunta, y;`,
+        text: ` la Disposición S.G.N.I. Primaria, Jóvenes y Adul. Ed. Especial, Bibliotecas y Gabinete Nº 018/2023, Disposición Nº 084/2023 Anexo I y la Planilla de Movimientos Laborales N° ${datos.dispoPlanilla} /2023 de la ${datos.dispoInstitucion}, cuya copia se adjunta, y;`,
         font: "Arial",
         size: 22,
       }),

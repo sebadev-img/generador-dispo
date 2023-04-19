@@ -214,7 +214,7 @@ const crearDispoBaja = async (datos) => {
         bold: true,
       }),
       new TextRun({
-        text: ` la Circular Nº 19/18 producida por la Subsecretaría de Control y Gestión de RRHH–M.ED, Disposición SS.C.Y G RRHH .Nº 0018/18 Disposición SS.C.Y G RRHH .Nº 003/18  y  la Planilla de Movimientos Laborales N° ${datos.dispoPlanilla}/2023 de la Escuela Provincial N° 44, cuya copia se adjunta, y;`,
+        text: ` la Circular Nº 19/18 producida por la Subsecretaría de Control y Gestión de RRHH–M.ED, Disposición SS.C.Y G RRHH .Nº 0018/18 Disposición SS.C.Y G RRHH .Nº 003/18  y  la Planilla de Movimientos Laborales N° ${datos.dispoPlanilla}/2023 de la ${datos.dispoInstitucion}, cuya copia se adjunta, y;`,
         font: "Arial",
         size: 22,
       }),
