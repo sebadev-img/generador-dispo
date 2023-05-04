@@ -57,6 +57,7 @@ function DispoBaja({
                 Mañana
               </option>
               <option value="Tarde">Tarde</option>
+              <option value="Mañana y Tarde">Mañana y Tarde</option>
             </select>
           </div>
           <div className="planilla-container">
